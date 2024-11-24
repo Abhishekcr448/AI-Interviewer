@@ -1,0 +1,258 @@
+/* Main Container */
+.home-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.home-container.dark-mode {
+  background-color: #1c1c1e;
+  color: #f4f4f4;
+}
+
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav a {
+  color: #ffffff; /* Keeping link color white for contrast */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+  color: #ffecb3; /* Example accent color for buttons */
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+}
+
+.header.dark-mode {
+  background-color: #121212;
+}
+
+.header-logo img {
+  height: 40px;
+}
+.header-logo {
+  display: flex;
+  align-items: center; /* Vertically centers the items */
+}
+
+.header-logo img {
+  margin-right: 10px; /* Adds some space between the image and the label */
+}
+
+
+.header-nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-icon-button, .header-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #7c9ec0; /* Replace image with solid background color */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+}
+
+.hero-section.dark-mode {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+.hero-section .hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.start-interview-button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.start-interview-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.start-interview-button.dark-mode {
+  background-color: #3b82f6;
+}
+
+/* Features Section */
+.features-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.features-section.dark-mode {
+  background-color: #2c2c2e;
+  color: #f4f4f4;
+}
+
+.features-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.features-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card.dark-mode {
+  background-color: #3a3a3c;
+  color: #f4f4f4;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.feature-card i {
+  font-size: 40px;
+  color: #007bff;
+}
+
+.feature-card i.dark-mode {
+  color: #1e90ff;
+}
+
+/* About Section */
+.about-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.about-section.dark-mode {
+  background-color: #1c1c1e;
+  color: #f4f4f4;
+}
+
+.about-section p {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-details {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.about-details div {
+  width: 300px;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-section.dark-mode {
+  background-color: #2c2c2e;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form input.dark-mode,
+.contact-form textarea.dark-mode {
+  background-color: #3a3a3c;
+  color: #f4f4f4;
+  border: 1px solid #555;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.contact-form button.dark-mode {
+  background-color: #3b82f6;
+}
+
+.contact-form button.dark-mode:hover {
+  background-color: #2563eb;
+}
+.header-hero-divider {
+  height: 2px;
+  background-color: white;
+  width: 100%;
+}
+.header-hero-divider.dark-mode {
+  background-color: #333; /* Adjust as needed */
+}

@@ -1,0 +1,46 @@
+{
+    "easy-questions": [
+        {
+            "difficulty": "1005",
+            "title": "Magical World",
+            "Description": "Alice has two coloured shapes: A red rectangle with length A units, and width B units. A blue square with an edge length of X units. Alice lives in a magical world where the dimensions of red shapes can be changed. Each change in dimension costs 1 unit of money, using which you can change any single dimension of a red object to any positive integer. Alice wants to make the area of the blue square greater than or equal to the area of the red rectangle. Find the minimum cost needed to make this possible. Input Format: The first line of input will contain a single integer T, denoting the number of test cases The first and only line of each test case will contain three space-separated integers A, B, and X — the length of the red rectangle, the width of the red rectangle, and the length of the edge of the blue square. Output Format: For each test case, output on a new line the minimum cost required to make the area of the blue square greater than or equal to the area of the red rectangle",
+            "Examples": [
+                {
+                    "example1": {
+                        "Input": "3\n2 3 2\n4 3 4\n8 8 2",
+                        "Output": "1\n0\n2",
+                        "Explanation": "Test case 1: If Alice changes the width of the red rectangle (the value B) to 2 the rectangle will have an area of 2×2=4 while the square will have an area of 2^2=4.They are equal, which Alice is fine with. Test case 2: The square's area is 4^2=16, while the rectangle's is 4×3=12. Since 16≥12 already, no change of dimension is needed. Test case 3: Alice can use two moves, changing the length of the red rectangle to 3 and and its width to 1 The rectangle will have an area of 3×1=3, while the square will have an area of 2^2 =4. Since 3≤4, Alice is satisfied. It can be shown that Alice cannot achieve this using less than two moves. There may be different ways to achieve this, other than the ones provided. Nonetheless, the minimum costs are as mentioned."
+                    }
+                }
+            ],
+            "Constraints": [
+                "1≤T≤10^3",
+                "1≤A,B,X≤10"
+            ],
+            "Solution": "The area of the rectangle is A⋅B, and that of the square is X^2. So, if A⋅B≤X^2initially, no moves are needed. Otherwise, notice that it’s always possible within two moves by setting A=B=1, so we only need to decide whether using one move is enough.Since we’re aiming to minimize the area of the rectangle, ideally we should set one of the dimensions to be 1 If we set A=1 the area will be B, and if we set B=1 the area will be A instead. If either of these values are ≤X^2, one move is enough; otherwise we’ll need 2. So,If A⋅B≤X^2, the answer is 0. Otherwise, if min(A,B)≤X^2, the answer is 1 Otherwise, the answer is 2 TIME COMPLEXITY:O(1) per testcase.",
+            "code": "for _ in range(int(input())):\n    a, b, x = map(int, input().split())\n    if a*b <= x*x: print(0)\n    elif min(a, b) <= x*x: print(1)\n    else: print(2)"
+        },
+        {
+            "difficulty": "1372",
+            "title": "Maximise Sum",
+            "Description": "You are given an array A of length N. You can perform the following operation on it any number of times (possibly, zero): Choose any two distinct indices i and j (1 ≤ i, j ≤ N and i ≠ j), and multiply both A_i and A_j by −1. That is, set A_i to −A_i, and also A_j to −A_j. Find the maximum possible sum of the array A after performing this operation several times. Input Format The first line of input will contain a single integer T, denoting the number of test cases. Each test case consists of two lines of input. The first line of each test case contains N — the number of elements in A. The second line of each test case contains N space-separated integers A_1, A_2, …, A_N, denoting the array A. Output Format For each test case, output on a new line the maximum possible sum of A after several operations.",
+            "Examples": [
+                {
+                    "example1": {
+                        "Input": "3\n4 \n1 0 3 3\n5\n-3 4 6 2 -1\n3\n-1 3 4",
+                        "Output": "7\n16\n6",
+                        "Explanation": "Test case 1: The sum of the array is 7, which is the best we can do. No operations are needed. Test case 2: Consider the following operation: Choose i=1 and j=5. The array becomes [3,4,6,2,1]. Its sum is now 16, which is the maximum possible."
+                    }
+                }
+            ],
+            "Constraints": [
+                "1≤T≤10^5",
+                "2≤N≤2⋅10^5",
+                "−10^5≤Ai≤10^5",
+                "The sum of N over all test cases won't exceed 4⋅10^5."
+            ],
+            "Solution": "Since in each move we multiply exactly two elements by -1, after several moves we can certainly multiply any even number of elements by -1. Further, it can be seen that there’s no way to multiply an odd number of elements by -1. Why? Suppose an operation is performed on indices (i, j). Then, If i and j are both not negated, they both become negated. The number of negated elements increases by 2. If i and j are both already negated, they both become not negated. The number of negated elements decreases by 2. If i is negated and j is not (or vice versa), they swap states. The number of negated elements doesn’t change. So, after an operation, the number of negated elements changes by +2/0/-2. Given that we start at 0, it’s impossible to reach an odd number. Now, ideally we’d like to turn negative elements positive, and not turn positive elements negative. So, If there are an even number of negative elements, they can all be made positive, and this is optimal. If there are an odd number of negative elements, we have two choices: Leave one negative element aside, and turn all the others positive. Here, of course we leave the largest one aside: for example if A=[−1,−2,−3] then we turn it to [−1,2,3] and leave −1 aside. Turn all the negative elements positive, while also operating on one non-negative element (if it exists). For example, when A=[−100,1], it’s optimal to turn it into [100,−1]. Here, it’s easy to see that the chosen non-negative element should be as small as possible. When there are an odd number of negative elements, try both cases and take the maximum of them. Each case is easily simulated in O(N) time - you only need to find all negative elements, and then know either the largest among them or the smallest among the remaining elements. TIME COMPLEXITY: O(N) per testcase.",
+            "code": "for _ in range(int(input())):\n\tn = int(input())\n\ta = sorted(list(map(int, input().split())))\n\tans = sum(a)\n\tfor i in range(0, n-1, 2):\n\t\tans -= a[i] + a[i+1]\n\t\tans += max(a[i] + a[i+1], -a[i] - a[i+1])\n\tprint(ans)"
+        }
+    ]
+}

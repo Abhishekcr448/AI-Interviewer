@@ -1,0 +1,881 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f4f4f9;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-container.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.header-buttons button,
+.header-buttons select {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover,
+.header-buttons select:hover {
+  background-color: #e7e7e7;
+}
+
+.language-selector {
+  background-color: #f4f4f9;
+  color: #333;
+  font-weight: bold;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
+}
+
+.timer-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.timer {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #fff;
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: #007bff;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.timer-controls button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 12px;
+  height: 30px;
+  width: 30px;
+}
+
+.timer-controls button:hover {
+  background-color: #0056b3;
+}
+
+.timer-controls i {
+  font-size: 12px;
+}
+
+.question-tabs {
+  display: flex;
+  justify-content: center;
+  background-color: #007bff;
+  padding: 10px;
+  gap: 10px;
+}
+
+.question-tabs button {
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.question-tabs button:hover {
+  background-color: #e7e7e7;
+}
+
+.coding-question p {
+  max-width: 400px;
+  /* Adjust this value to fit around 6-7 words */
+  white-space: normal;
+  /* Allow text to wrap */
+  word-wrap: break-word;
+  /* Force long words to break */
+  line-height: 1.6;
+  /* Optional: adjust line height for readability */
+  text-align: justify;
+  /* Optional: justify text to make lines look cleaner */
+}
+
+.split-screen {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 20px;
+  gap: 15px;
+}
+
+.chat-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  transition: background-color 0.3s ease;
+  /* Ensure chat is scrollable */
+  max-height: calc(100vh - 150px);
+  /* Adjust based on your layout */
+}
+
+.chat-section.dark {
+  background-color: #2c2c2c;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  max-height: 400px;
+  /* Set the max height of the message container */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  padding-right: 10px;
+  /* Optional: space for scroll bar */
+}
+
+
+
+
+.message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.user .message-content {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 15px 15px 0 15px;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message.bot .message-content {
+  background-color: #f4f4f9;
+  color: #333;
+  border-radius: 15px 15px 15px 0;
+}
+
+.message-content {
+  padding: 10px 15px;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  font-size: 1.5rem;
+}
+
+/* Chat Input Always at Bottom */
+.input-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Resizable Code Editor */
+/* Updated IDE Section Styling */
+.ide-section .editor-output-container {
+  flex-grow: 1;
+  border-bottom: 2px solid #ddd;
+  background-color: #f4f4f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+
+}
+
+.ide-section .editor-output-container:hover {
+  border-color: #007bff;
+  background-color: #e9f0fc;
+}
+
+/* Updated IDE Buttons Styling */
+.ide-buttons {
+  display: flex;
+  justify-content: flex-start;
+  /* Ensure buttons are placed inline */
+  gap: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ide-buttons button {
+  z-index: 1;
+  /* Ensure button is above other elements */
+  position: relative;
+  /* Make sure it stays within its parent */
+}
+
+
+.ide-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ide-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.ide-buttons button:active {
+  background-color: #004099;
+  transform: translateY(0);
+}
+
+/* Interactive Button Ripple Effect */
+.ide-buttons button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  border-radius: inherit;
+}
+
+.ide-buttons button:active::after {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.output-container {
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+}
+
+.output-container h3 {
+  margin-bottom: 10px;
+}
+
+pre {
+  background-color: #efefef;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Dark Mode */
+.chat-section.dark .message-content {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.chat-section.dark .message.user .message-content {
+  background-color: #333;
+  color: #fff;
+}
+
+.ide-section.dark {
+  background-color: #1e1e1e;
+}
+
+/* Updated Output Styling */
+.output-container {
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.output-container:hover {
+  background-color: #eaeaea;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.output-container {
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+
+pre:hover {
+  background-color: #e7e7e7;
+}
+
+/* Dark Mode Updated Output Styling */
+.output-container.dark {
+  background-color: #2a2a2a;
+  box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.1);
+}
+
+pre.dark {
+  background-color: #3b3b3b;
+  color: #f5f5f5;
+}
+
+pre.dark:hover {
+  background-color: #4a4a4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .split-screen {
+    flex-direction: column;
+  }
+
+  .question-tabs {
+    flex-wrap: wrap;
+  }
+
+  .ide-section {
+    margin-top: 20px;
+  }
+}
+
+.editor-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.run-button,
+.submit-button {
+  padding: 10px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.run-button:hover,
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Existing styles */
+
+.chat-container.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* Header dark mode */
+.chat-header.dark {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.header-buttons .dark {
+  background-color: #444;
+  color: #f5f5f5;
+}
+
+.header-buttons .dark:hover {
+  background-color: #555;
+}
+
+.language-selector.dark {
+  background-color: #444;
+  color: #f5f5f5;
+}
+
+.timer-container.dark {
+  background-color: #444;
+  color: #f5f5f5;
+
+
+}
+
+.timer-label .dark {
+  background-color: #444;
+  color: #f5f5f5;
+}
+
+/* Question Tabs dark mode */
+.question-tabs.dark {
+  background-color: #333;
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Resizable Code Editor */
+/* Updated IDE Section Styling */
+.ide-section .editor-output-container {
+  flex-grow: 1;
+  border-bottom: 2px solid #ddd;
+  background-color: #f4f4f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+
+}
+
+.ide-section .editor-output-container:hover {
+  border-color: #007bff;
+  background-color: #e9f0fc;
+}
+
+/* Updated IDE Buttons Styling */
+.ide-buttons {
+  display: flex;
+  justify-content: flex-start;
+  /* Ensure buttons are placed inline */
+  gap: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ide-buttons button {
+  z-index: 1;
+  /* Ensure button is above other elements */
+  position: relative;
+  /* Make sure it stays within its parent */
+}
+
+
+.ide-buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ide-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.ide-buttons button:active {
+  background-color: #004099;
+  transform: translateY(0);
+}
+
+/* Interactive Button Ripple Effect */
+.ide-buttons button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  border-radius: inherit;
+}
+
+.ide-buttons button:active::after {
+  opacity: 1;
+  transform: scale(0.9);
+}
+
+.output-container {
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+}
+
+.output-container h3 {
+  margin-bottom: 10px;
+}
+
+pre {
+  background-color: #efefef;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Dark Mode */
+.chat-section.dark .message-content {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.chat-section.dark .message.user .message-content {
+  background-color: #333;
+  color: #fff;
+}
+
+.ide-section.dark {
+  background-color: #1e1e1e;
+}
+
+/* Updated Output Styling */
+.output-container {
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.output-container:hover {
+  background-color: #eaeaea;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.output-container {
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+
+pre:hover {
+  background-color: #e7e7e7;
+}
+
+/* Dark Mode Updated Output Styling */
+.output-container.dark {
+  background-color: #2a2a2a;
+  box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.1);
+}
+
+pre.dark {
+  background-color: #3b3b3b;
+  color: #f5f5f5;
+}
+
+pre.dark:hover {
+  background-color: #4a4a4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .split-screen {
+    flex-direction: column;
+  }
+
+  .question-tabs {
+    flex-wrap: wrap;
+  }
+
+  .ide-section {
+    margin-top: 20px;
+  }
+}
+
+.editor-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.run-button,
+.submit-button {
+  padding: 10px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.run-button:hover,
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Existing styles */
+
+.chat-container.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+/* Header dark mode */
+.chat-header.dark {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.header-buttons .dark {
+
+  background-color: #444;
+  color: #f5f5f5;
+}
+
+.input-output-container {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-output {
+  margin: 0;
+}
+
+.predefined-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--container-bg, #f9f9f9);
+  /* Light mode background */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.predefined-text {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  border: 1px solid var(--border-color, #ccc);
+  /* Light mode border */
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.predefined-text:focus {
+  outline: none;
+  border-color: var(--focus-border-color, #007bff);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Dark mode styles */
+.dark .predefined-text-container {
+  background-color: var(--dark-container-bg, #333);
+  /* Dark mode background */
+}
+
+.dark .predefined-text {
+  border-color: var(--dark-border-color, #555);
+  /* Dark mode border */
+  background-color: var(--dark-input-bg, #444);
+  color: #fff;
+}
+
+.dark .predefined-text:focus {
+  border-color: var(--dark-focus-border-color, #0d6efd);
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+.language-selector {
+  padding: 10px;
+  border: 1px solid #ccc;
+  /* Light border */
+  border-radius: 5px;
+  /* Rounded corners */
+  background-color: #f9f9f9;
+  /* Light background */
+  transition: border-color 0.3s, background-color 0.3s;
+  /* Smooth transitions */
+  font-size: 1rem;
+  /* Font size */
+  margin-bottom: 10px;
+  /* Space below the selector */
+  width: 30%;
+  /* Full width */
+}
+
+.language-selector:focus {
+  outline: none;
+  /* Remove default outline */
+  border-color: #007bff;
+  /* Blue border on focus */
+  background-color: #e7f0ff;
+  /* Light blue background on focus */
+}
+
+.language-selector.dark {
+  border-color: #666;
+  /* Dark border for dark mode */
+  background-color: #333;
+  /* Dark background for dark mode */
+  color: #fff;
+  /* White text for dark mode */
+}
+
+.language-selector.dark:focus {
+  border-color: #007bff;
+  /* Blue border on focus in dark mode */
+  background-color: #444;
+  /* Slightly lighter dark background on focus */
+}
+
+.question-section {
+  max-height: 150px;
+  /* Set a maximum height */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  padding: 15px;
+  /* Add padding for better spacing */
+  border: 1px solid #ccc;
+  /* Optional: border for distinction */
+  border-radius: 5px;
+  /* Optional: rounded corners */
+  background-color: #f9f9f9;
+  /* Light background for light mode */
+  transition: background-color 0.3s;
+  /* Smooth transition for background */
+}
+
+.question-section.dark {
+  background-color: #444;
+  /* Dark background for dark mode */
+  border-color: #666;
+  /* Dark border for dark mode */
+  color: #fff;
+  /* White text for dark mode */
+}
+
+.input-output-container {
+  margin-top: 10px;
+  /* Space between input/output and the question */
+}
+
+.input-output {
+  margin: 5px 0;
+  /* Space between input and output */
+}

@@ -1,0 +1,108 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darken the overlay for better focus on modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px; /* Slightly larger rounded corners for a modern look */
+    padding: 25px;
+    max-width: 600px; /* Set a fixed width for better consistency */
+    width: 90%; /* Ensure modal is responsive */
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for better separation */
+    position: relative;
+    animation: modal-fade-in 0.3s ease-in-out; /* Add a smooth fade-in animation */
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 22px; /* Slightly larger for better accessibility */
+    color: #333; /* Darker color for visibility */
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.modal-close:hover {
+    color: #ff5f5f; /* Subtle hover effect */
+}
+
+/* Scrollable List */
+.scrollable-list {
+    max-height: 220px; /* Adjust height slightly for better usability */
+    overflow-y: auto;
+    margin: 15px 0;
+    border: 1px solid #e0e0e0; /* Light border for a clean look */
+    padding: 10px;
+    border-radius: 6px; /* Rounded corners for consistency */
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.scrollable-list label {
+    display: block;
+    margin: 8px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Accessibility Focus for Keyboard Navigation */
+.modal-content:focus,
+.modal-close:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff; /* Focus outline for accessibility */
+}
+button {
+    background-color: #4481c2; /* Button background color */
+    color: #f9f9f9; /* Button text color */
+    padding: 10px 24px; /* Increase padding for a larger clickable area */
+    font-size: 18px; /* Larger font size for better readability */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #3576a6; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Responsive behavior */
+button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(68, 129, 194, 0.5); /* Custom focus outline for accessibility */
+}
+
+/* Smooth Scroll for scrollable elements */
+.scrollable-list {
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation for modal */
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "overall": "summary",
+    "overall-communication-skills": "4",
+    "overall-theory-skills": "4",
+    "overall-coding-skills": "4",
+    "questionSet": [
+        {
+            "overall": "summary",
+            "overall-communication-skills": "4",
+            "overall-theory-skills": "4",
+            "question": "question1",
+            "type": "theory",
+            "conversation":[
+                {
+                    "assistant": "assistant1",
+                    "user": "user1",
+                    "expectedOutput": "expectedOutput1"
+                },
+                {
+                    "assistant": "assistant2",
+                    "user": "user2",
+                    "expectedOutput": "expectedOutput2"
+                }
+            ]
+        },
+        {
+            "overall": "summary",
+            "overall-communication-skills": "4",
+            "overall-theory-skills": "4",
+            "question": "question2",
+            "type": "theory",
+            "conversation":[
+                {
+                    "assistant": "assistant1",
+                    "user": "user1",
+                    "expectedOutput": "expectedOutput1"
+                },
+                {
+                    "assistant": "assistant2",
+                    "user": "user2",
+                    "expectedOutput": "expectedOutput2"
+                }
+            ]
+        },
+        {
+            "overall": "summary",
+            "overall-communication-skills": "4",
+            "overall-theory-skills": "4",
+            "overall-coding-skills": "4",
+            "question": "question3",
+            "type": "coding",
+            "userCode": "userCode",
+            "expectedCode": "expectedCode",
+            "Solution": "Solution",
+            "conversation":[
+                {
+                    "assistant": "assistant1",
+                    "user": "user1",
+                    "expectedOutput": "expectedOutput1"
+                },
+                {
+                    "assistant": "assistant2",
+                    "user": "user2",
+                    "expectedOutput": "expectedOutput2"
+                }
+            ]
+        }
+    ]
+}
